@@ -88,9 +88,20 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/light-bootstrap-dashboard.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/core/jquery.3.2.1.min.js",
+              "src/assets/js/core/popper.min.js",
+              "src/assets/js/core/bootstrap.min.js",
+              "src/assets/js/plugins/bootstrap-datepicker.js",
+              "src/assets/js/plugins/bootstrap-notify.js",
+              "src/assets/js/plugins/bootstrap-switch.js",
+              "src/assets/js/plugins/chartist.min.js",
+              "src/assets/js/plugins/nouislider.min.js",
+              "src/assets/js/light-bootstrap-dashboard.js"
+            ]
           }
         },
         "lint": {
