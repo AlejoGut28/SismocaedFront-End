@@ -130,6 +130,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "intercambio"
+    }
+  },
+  "defaultProject": "intercambio",
+  "cli": {
+    "analytics": "45633bee-61a5-44e2-8154-6da19f5afd0d"
+  }
 }
