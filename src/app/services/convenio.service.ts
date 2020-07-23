@@ -23,4 +23,8 @@ export class ConvenioService{
 
         return this._https.get(this.url + 'convenio', {headers: headers});
     }
+
+    saveConvenios(convenio:Convenio){
+        return this._https.post<Convenio>(this.url + 'saveconv', convenio);
+    }
 }
