@@ -10,6 +10,11 @@ import { SolicitarconvenioComponent } from './components/solicitarconvenio/solic
 import { NotificarconvocatoriaComponent } from './components/notificarconvocatoria/notificarconvocatoria.component';
 
 
+const routesHome: Routes = [
+  {path:'', redirectTo:'',pathMatch:'full'},
+  
+];
+
 const routes: Routes = [
   {
     path: '', component: DashboardComponent, children: [
