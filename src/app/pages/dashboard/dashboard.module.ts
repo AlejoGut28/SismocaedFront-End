@@ -7,10 +7,12 @@ import { DashboardComponent } from './dashboard.component';
 import { VacanteComponent } from './components/vacante/vacante.component';
 import { ConvenioComponent } from './components/convenio/convenio.component';
 import { DetalleConvoComponent } from './components/detalle-convo/detalle-convo.component';
-
+import { PublicaranuncioComponent } from './components/publicaranuncio/publicaranuncio.component';
+import { SolicitarconvenioComponent } from './components/solicitarconvenio/solicitarconvenio.component';
+import { NotificarconvocatoriaComponent } from './components/notificarconvocatoria/notificarconvocatoria.component';
 
 @NgModule({
-  declarations: [DashboardComponent, InicioComponent, VacanteComponent, ConvenioComponent, DetalleConvoComponent],
+  declarations: [DashboardComponent, InicioComponent, VacanteComponent, ConvenioComponent, DetalleConvoComponent, PublicaranuncioComponent, SolicitarconvenioComponent, NotificarconvocatoriaComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule
