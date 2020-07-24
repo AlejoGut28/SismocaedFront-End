@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -12,10 +15,16 @@ import { SolicitarconvenioComponent } from './components/solicitarconvenio/solic
 import { NotificarconvocatoriaComponent } from './components/notificarconvocatoria/notificarconvocatoria.component';
 
 @NgModule({
-  declarations: [DashboardComponent, InicioComponent, VacanteComponent, ConvenioComponent, DetalleConvoComponent, PublicaranuncioComponent, SolicitarconvenioComponent, NotificarconvocatoriaComponent],
+  declarations: [
+    DashboardComponent, 
+    InicioComponent, 
+    VacanteComponent, 
+    ConvenioComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

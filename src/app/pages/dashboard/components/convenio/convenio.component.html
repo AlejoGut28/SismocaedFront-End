@@ -7,7 +7,8 @@
         data-toggle="modal" data-target="#modalConvenio">Agregar Convenio
        </button>
     </div>
-    <div class="modal fade" id="modalConvenio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalConvenio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    FormGroup="convenio">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -25,23 +26,31 @@
                   <div class="form-group">
                     <label for="fecha_inicio">Fecha de Inicio</label>
                     <input type="date" class="form-control" id="fecha_inicio" aria-describedby="emailHelp"
-                    style="width:70%">
+                    style="width:70%" [(ngModel)]="convenio.fecha_inicio">
                   </div>
                   <div class="form-group">
                     <label for="fecha_fin">Fecha de Finalizacion</label>
                     <input type="date" class="form-control" id="fecha_fin" aria-describedby="emailHelp"
-                    style="width:70%">
+                    style="width:70%" [(ngModel)]="convenio.fecha_fin">
                   </div>
                   <div class="form-group">
                     <label for="universidad">Universidad</label>
-                    <select class="form-control form-control-lg" style="width:70%" id="universidad">
-                        <option>...</option>
+                    <select class="form-control form-control-lg" style="width:70%; height: 40%"
+                    [(ngModel)]="universidad.iduniversidad">
+                        <option *ngFor="let uni of universidades" 
+                        [value]="uni.iduniversidad">
+                            {{uni.nombre}}
+                        </option>
                       </select>
                   </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="saveConvenio()">Cerrar</button>
-              <button type="button" class="btn btn-primary">Guardar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" >
+              Cerrar
+             </button>
+              <button type="button" class="btn btn-primary"(click)="saveConvenio()"
+              data-dismiss="modal">
+              Guardar</button>
             </div>
           </div>
         </div>
@@ -57,9 +66,9 @@
                 <th>Opciones</th>
                 <th class="d-none"></th>
             </thead>
-            <tbody  *ngFor="let convenio of convenios">
+            <tbody  *ngFor="let convenio of convenios; let i = index">
                 <tr>
-                    <td>{{convenio.idconvenio}}</td>
+                    <td>{{i + 1}}</td>
                     <td>{{convenio.n_documento}}</td>
                     <td>{{convenio.fecha_inicio}}</td>
                     <td>{{convenio.fecha_fin}}</td>
