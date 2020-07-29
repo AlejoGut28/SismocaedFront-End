@@ -24,15 +24,12 @@
             <tbody *ngFor="let vacante of vacantes; let i = index">
                 <tr>
                     <td>{{i + 1}}</td>
-                    <td>{{vacante.nom_u}}</td>
-                    <td>{{vacante.nom_e}}</td>
-                    <td>{{vacante.vacantes}}</td>
+                    <td>{{vacante.ide_profesional.iduniversidad.nombre}}</td>
+                    <td>{{vacante.ide_profesional.facultad}}</td>
                     <td>{{vacante.descripcion}}</td>
-                    <td>{{vacante.direccion}}</td>
+                    <td>{{vacante.ide_profesional.iduniversidad.totalvacantes   }}</td>
+                    <td>{{vacante.ide_profesional.iduniversidad.direccion}}</td>
                     <td class="td-actions text-right">
-                        <a href="#" rel="tooltip" title="View Profile" class="btn btn-info btn-link btn-xs">
-                            <i class="fa fa-user"></i>
-                        </a>
                         <a href="#" rel="tooltip" title="Edit Profile" class="btn btn-success btn-link btn-xs">
                             <i class="fa fa-edit"></i>
                         </a>
