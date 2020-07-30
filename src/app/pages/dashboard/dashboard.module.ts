@@ -19,7 +19,9 @@ import { NotificarconvocatoriaComponent } from './components/notificarconvocator
     DashboardComponent, 
     InicioComponent, 
     VacanteComponent, 
-    ConvenioComponent],
+    ConvenioComponent,
+    DetalleConvoComponent
+  ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
