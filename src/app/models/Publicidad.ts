@@ -1,5 +1,5 @@
 export class Publicidad{
-    idpublicidad: number;
+    idpublicidad?: number;
     titulo: string;
     url_imagen: string;
     imagenId: string;

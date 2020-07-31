@@ -1,62 +1,17 @@
+
 <div class="wrapper wrapper-full-page">
     <div class="full-page  section-image" data-color="black" data-image="../../assets/img/full-screen-image-2.jpg">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="content">
             <div class="container">
                 <div class="row justify-content-center mt-5">
-                    <div class="col-4">
-                        <div id="carousel" class="carousel slide" data-ride="carousel">
+                      <div class="col-5" *ngFor="let publicidad of publicidades; index as i">
+                        <div class="carousel slide">
                             <div class="carousel-inner">
                               <div class="carousel-item active">
-                                <img class="d-block w-100" src="https://media.kingston.com/hyperx/downloads/ISG-Mobile-750x1334.jpg" alt="publicidad">
+                                <img class="d-block w-100"  style="height: 530px; width: 500%;" src="{{publicidad.url_imagen}}" alt="Card image">
                               </div>
-                              <div class="carousel-item">
-                                <img class="d-block w-100" src="https://media.kingston.com/hyperx/downloads/logo-breaking-wall-screensaver-1080x1920.jpg" alt="publicidad">
-                              </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Anterior</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Siguiente</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-4 mt-5">
-                        <form class="form mt-5" method="" action="">
-                            <div class="card card-login card-hidden">
-                                <div class="card-header ">
-                                    <h3 class="header text-center">Login</h3>
-                                </div>
-                                <div class="card-body ">
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label>Email address</label>
-                                            <input type="email" placeholder="Enter email" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" placeholder="Password" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer ml-auto mr-auto">
-                                    <button [routerLink]="['/dashboard', 'inicio']" type="submit" class="btn btn-warning btn-wd">Login</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-4">
-                        <div id="carousel2" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img class="d-block w-100" src="https://media.kingston.com/hyperx/downloads/ISG-Mobile-750x1334.jpg" alt="publicidad">
-                              </div>
-                              <div class="carousel-item">
-                                <img class="d-block w-100" src="https://media.kingston.com/hyperx/downloads/logo-breaking-wall-screensaver-1080x1920.jpg" alt="publicidad">
-                              </div>
+                             
                             </div>
                             <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -68,6 +23,31 @@
                             </a>
                         </div>
                     </div>
+                    <div class="col-4 mt-5" >
+                        <form class="form mt-5" method="" action="" >
+                            <div class="card card-login card-hidden" >
+                                <div class="card-header ">
+                                    <h3 class="header text-center">Login</h3>
+                                </div>
+                                <div class="card-body ">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label>Ingresa tu Usuario</label>
+                                            <input type="email" placeholder="Ingresa tu usuario" class="form-control  ">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Contraseña</label>
+                                            <input type="password" placeholder="ingresa contraseña" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer ml-auto mr-auto">
+                                    <button  type="submit" class="btn btn-warning btn-wd" [routerLink]="['/dashboard']">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+              
                 </div>
             </div>
         </div>
