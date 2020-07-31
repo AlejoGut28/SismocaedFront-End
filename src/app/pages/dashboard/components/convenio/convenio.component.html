@@ -108,6 +108,33 @@
               <input type="email" class="form-control" aria-describedby="emailHelp" style="width:70%"
                 [(ngModel)]="conv.n_documento">
             </div>
+            <h3 class="modal-title" style="text-align: center;">Registrar Convenio</h3>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="n_documento">N° de documento</label>
+                    <input type="email" class="form-control" id="n_documento" aria-describedby="emailHelp"
+                    style="width:70%" [(ngModel)]="convenio.n_documento">
+                  </div>
+                  <div class="form-group">
+                    <label for="fecha_inicio">Fecha de Inicio</label>
+                    <input type="date" class="form-control" id="fecha_inicio" aria-describedby="emailHelp"
+                    style="width:70%" [(ngModel)]="convenio.fecha_inicio">
+                  </div>
+                  <div class="form-group">
+                    <label for="fecha_fin">Fecha de Finalizacion</label>
+                    <input type="date" class="form-control" id="fecha_fin" aria-describedby="emailHelp"
+                    style="width:70%" [(ngModel)]="convenio.fecha_fin">
+                  </div>
+                  <div class="form-group">
+                    <label for="universidad">Universidad</label>
+                    <select class="form-control form-control-lg" style="width:70%; height: 40%"
+                    [(ngModel)]="universidad.iduniversidad">
+                        <option *ngFor="let uni of universidades" 
+                        [value]="uni.iduniversidad">
+                            {{uni.nombre}}
+                        </option>
+                      </select>
+                  </div>
             <div class="form-group">
               <label for="fecha_ini">Fecha de Inicio</label>
               <input type="date" class="form-control" id="fecha_ini" aria-describedby="emailHelp" style="width:70%"
