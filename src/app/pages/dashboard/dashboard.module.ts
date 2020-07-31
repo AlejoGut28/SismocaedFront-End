@@ -4,12 +4,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< HEAD
 
 import {NgxPaginationModule} from 'ngx-pagination';
-=======
-import { NgxPaginationModule } from 'ngx-pagination';
->>>>>>> f2ff5105ea3e624098f4a16a5ae640d58c8b6143
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { InicioComponent } from './components/inicio/inicio.component';
