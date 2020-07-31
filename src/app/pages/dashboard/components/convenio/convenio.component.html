@@ -60,7 +60,7 @@
         <th>#</th>
         <th>N° de documento</th>
         <th>Fecha inicio</th>
-        <th>Fecha fin</th>
+        <th>Fecha de finalización</th>
         <th>Universidad</th>
         <th>Opciones</th>
         <th class="d-none"></th>
@@ -93,7 +93,7 @@
   <div>
     <!-- Modal -->
     <div class="modal fade" id="editConv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true"  *ngFor="let con of convenios">
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -102,21 +102,21 @@
             </button>
           </div>
           <h3 class="modal-title" style="text-align: center;">Editar Convenio</h3>
-          <div class="modal-body">
+          <div class="modal-body" >
             <div class="form-group">
               <label>N° de documento</label>
               <input type="email" class="form-control" aria-describedby="emailHelp" style="width:70%"
-                [(ngModel)]="con.n_documento">
+                [(ngModel)]="conv.n_documento">
             </div>
             <div class="form-group">
               <label for="fecha_ini">Fecha de Inicio</label>
               <input type="date" class="form-control" id="fecha_ini" aria-describedby="emailHelp" style="width:70%"
-                [(ngModel)]="con.fecha_inicio">
+                [(ngModel)]="conv.fecha_inicio">
             </div>
             <div class="form-group">
               <label for="fecha_fin">Fecha de Fin</label>
-              <input type="date" class="form-control" id="fecha_fin" aria-describedby="emailHelp" style="width:70%"
-                [(ngModel)]="con.fecha_fin">
+              <input type="date" class="form-control" id="fe  cha_fin" aria-describedby="emailHelp" style="width:70%"
+                [(ngModel)]="conv.fecha_fin">
             </div>
             <div class="form-group">
               <label for="universidad">Universidad</label>
@@ -130,7 +130,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" (click)="updateConvenio(con)" data-dismiss="modal">
+            <button type="button" class="btn btn-primary" (click)="updateConvenio()" data-dismiss="modal">
               Guardar</button>
           </div>
         </div>

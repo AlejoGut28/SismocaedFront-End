@@ -42,8 +42,8 @@ export class ConvenioService{
         );
     }
 
-    editConvenio(convenio:Convenio){
-        return this._https.put<Convenio[]>( this.url + 'editconv/', convenio, {headers: this.HttpHeaders}).pipe(
+    editConvenio(id:number, value:any): Observable<Object>{
+        return this._https.put( this.url + 'editconv/' +id, value, {headers: this.HttpHeaders}).pipe(
             catchError( e => {
                  if(e.status == 400){
                      return throwError(e.error.message);
@@ -55,8 +55,8 @@ export class ConvenioService{
         );
     }
 
-    getConvenioId(id:number){
-        return this._https.get<Convenio[]>(this.url + 'convenio/' + id, {headers: this.HttpHeaders}).pipe(
+    getConvenioId(id:number): Observable<any> {
+        return this._https.get<any>(this.url + 'convenio/' + id, {headers: this.HttpHeaders}).pipe(
             catchError( e => {
                 if(e.status == 400){
                     return throwError(e.error.message);

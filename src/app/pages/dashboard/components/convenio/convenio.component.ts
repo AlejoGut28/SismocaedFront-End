@@ -21,8 +21,9 @@ export class ConvenioComponent implements OnInit {
   public universidad: Universidad = new Universidad();
   p: number;
   idconvenio: number;
-  conv: Convenio[];
+  conv: Convenio = new Convenio();
   conv_borrar: Convenio = new Convenio();
+  uni: Universidad = new Universidad();
 
 
   constructor(
@@ -64,24 +65,11 @@ export class ConvenioComponent implements OnInit {
     );
   }
 
-  updateConvenio(convenio: Convenio) {
-    console.log('entro al metodo ');
-    convenio.idconvenio = this.idconvenio;
-    this.convenio.iduniversidad = ({ "iduniversidad": Number(this.universidad.iduniversidad) } as Universidad);
-    console.log(convenio);
-    this._convenioService.editConvenio(convenio).subscribe(
-      (resp: any) => {
-        console.log(resp);
-        this.getConvenios();
-      }
-    )
-  }
-
   getConvenioId(id: number) {
     this.idconvenio = id;
     console.log(id);
     this._convenioService.getConvenioId(id).subscribe(
-      resp => {
+      (resp:any) => {
         this.conv = resp;
         console.log(this.conv);
         console.log(resp);
@@ -89,6 +77,22 @@ export class ConvenioComponent implements OnInit {
        err => console.log(err)
     );
   }
+
+  updateConvenio() {
+    console.log('entro al metodo ');
+    this.convenio.iduniversidad = ({ "iduniversidad": Number(this.universidad.iduniversidad) } as Universidad);
+    console.log(this.convenio.iduniversidad);
+    this._convenioService.editConvenio(this.idconvenio, this.conv).subscribe(
+      (resp: any) => {
+        console.log(resp);
+        this.getConvenios();
+      }
+    );
+    this.conv = new Convenio();
+    this.universidad = new Universidad();
+  }
+
+  
 
   deleteConvenio(id: number) {
     this.conv_borrar.idconvenio = id;
@@ -99,10 +103,10 @@ export class ConvenioComponent implements OnInit {
     );
   }
 
-  objectKeys(object:any){
+  /*objectKeys(object:any){
        const keys = Object.keys(object);
       console.log(keys);
        return keys;
-  }
+  }*/
   
 }
