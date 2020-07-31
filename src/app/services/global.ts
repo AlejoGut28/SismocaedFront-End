@@ -1,3 +1,3 @@
 export var Global = {
-    url: 'http://localhost:8082/apisis/'
+    url: 'http://localhost:8080/apisis/'
 };
