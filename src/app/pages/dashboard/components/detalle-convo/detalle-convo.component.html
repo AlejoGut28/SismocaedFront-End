@@ -17,8 +17,8 @@
                 <th>Descripcion</th>
                 <th class="d-none"></th>
             </thead>
-            <tbody  *ngFor="let detalle_convo of detalle_convo">
-                <tr>
+            <tbody  >
+                <tr *ngFor="let detalle_convo of detalle_convo">
                     <td>{{detalle_convo.iddetalle_convo}}</td>
                     <td>{{detalle_convo.url_solicitud}}</td>
                     <td>{{detalle_convo.fecha}}</td>

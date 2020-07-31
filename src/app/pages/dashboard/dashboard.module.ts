@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { BrowserModule } from '@angular/platform-browser';
+
+
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -41,6 +44,7 @@ import { AppComponent } from 'src/app/app.component';
     HttpClientModule,
     NgbModalModule,
     NgxSpinnerModule,
+    BrowserModule
   
 
 
@@ -48,6 +52,7 @@ import { AppComponent } from 'src/app/app.component';
   entryComponents: [LoginComponent],
   providers: [],
   bootstrap: [AppComponent]
+
 
 })
 export class DashboardModule { }

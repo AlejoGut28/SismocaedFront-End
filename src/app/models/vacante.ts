@@ -1,7 +1,8 @@
 export class Vacante {
-   nom_u: string
-   nom_e: string
-   vacantes: string 
-   descripcion: string
-   direccion: string
+   idrequisito:number
+   descripcion:string
+   archivo: string
+   documentos: string
+   ide_profesional:number
+   pic:string
 }

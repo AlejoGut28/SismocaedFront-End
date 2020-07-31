@@ -1,20 +1,112 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <div class="card table-with-links">
-    <div class="card-header "> 
-      <h4 class="card-title">Cuadro de convenios</h4>
-        <!-- <p class="card-category">Here is a subtitle for this table</p> -->
-        <button type="button" class="btn btn-primary" style="margin-left: 81%;"
-        data-toggle="modal" data-target="#modalConvenio">Agregar Convenio
-       </button>
+  <div class="card-header ">
+    <h4 class="card-title">Cuadro de convenios</h4>
+    <!-- <p class="card-category">Here is a subtitle for this table</p> -->
+    <button type="button" class="btn btn-primary" style="margin-left: 81%;" data-toggle="modal"
+      data-target="#modalConvenio">Agregar Convenio
+    </button>
+  </div>
+  <div class="modal fade" id="modalConvenio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" FormGroup="convenio">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <h3 class="modal-title" style="text-align: center;">Registrar Convenio</h3>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="n_documento">N° de documento</label>
+            <input type="email" class="form-control" id="n_documento" aria-describedby="emailHelp" style="width:70%"
+              [(ngModel)]="convenio.n_documento">
+          </div>
+          <div class="form-group">
+            <label for="fecha_inicio">Fecha de Inicio</label>
+            <input type="date" class="form-control" id="fecha_inicio" aria-describedby="emailHelp" style="width:70%"
+              [(ngModel)]="convenio.fecha_inicio">
+          </div>
+          <div class="form-group">
+            <label for="fecha_fin">Fecha de Finalizacion</label>
+            <input type="date" class="form-control" id="fecha_fin" aria-describedby="emailHelp" style="width:70%"
+              [(ngModel)]="convenio.fecha_fin">
+          </div>
+          <div class="form-group">
+            <label for="universidad">Universidad</label>
+            <select class="form-control form-control-lg" style="width:70%; height: 40%"
+              [(ngModel)]="universidad.iduniversidad">
+              <option *ngFor="let uni of universidades" [value]="uni.iduniversidad">
+                {{uni.nombre}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="button" class="btn btn-primary" (click)="saveConvenio()" data-dismiss="modal">
+            Guardar</button>
+        </div>
+      </div>
     </div>
-    <div class="modal fade" id="modalConvenio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    FormGroup="convenio">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+  </div>
+  <div class="card-body table-full-width table-responsive">
+    <table class="table table-hover table-striped">
+      <thead>
+        <th>#</th>
+        <th>N° de documento</th>
+        <th>Fecha inicio</th>
+        <th>Fecha de finalización</th>
+        <th>Universidad</th>
+        <th>Opciones</th>
+        <th class="d-none"></th>
+      </thead>
+      <tbody *ngFor="let convenio of convenios | paginate: {itemsPerPage:6, currentPage: p}; let i = index">
+        <tr>
+          <td>{{i + 1}}</td>
+          <td>{{convenio.n_documento}}</td>
+          <td>{{convenio.fecha_inicio}}</td>
+          <td>{{convenio.fecha_fin}}</td>
+          <td>{{convenio.iduniversidad.nombre}}</td>
+          <td class="td-actions text-right">
+            <a rel="tooltip" title="Edit Profile" class="btn btn-success btn-link btn-xs" data-toggle="modal"
+              data-target="#editConv">
+              <i class="fa fa-edit" (click)="getConvenioId(convenio.idconvenio)"></i>
+            </a>
+            <a rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-xs"
+              (click)="deleteConvenio(convenio.idconvenio)">
+              <i class="fa fa-times"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align: center;">
+      <pagination-controls (pageChange)="p=$event" previousLabel="Anterior" nextLabel="Siguiente">
+      </pagination-controls>
+    </div>
+  </div>
+  <div>
+    <!-- Modal -->
+    <div class="modal fade" id="editConv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <h3 class="modal-title" style="text-align: center;">Editar Convenio</h3>
+          <div class="modal-body" >
+            <div class="form-group">
+              <label>N° de documento</label>
+              <input type="email" class="form-control" aria-describedby="emailHelp" style="width:70%"
+                [(ngModel)]="conv.n_documento">
             </div>
             <h3 class="modal-title" style="text-align: center;">Registrar Convenio</h3>
             <div class="modal-body">
@@ -43,46 +135,32 @@
                         </option>
                       </select>
                   </div>
+            <div class="form-group">
+              <label for="fecha_ini">Fecha de Inicio</label>
+              <input type="date" class="form-control" id="fecha_ini" aria-describedby="emailHelp" style="width:70%"
+                [(ngModel)]="conv.fecha_inicio">
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" >
-              Cerrar
-             </button>
-              <button type="button" class="btn btn-primary"(click)="saveConvenio()"
-              data-dismiss="modal">
+            <div class="form-group">
+              <label for="fecha_fin">Fecha de Fin</label>
+              <input type="date" class="form-control" id="fe  cha_fin" aria-describedby="emailHelp" style="width:70%"
+                [(ngModel)]="conv.fecha_fin">
+            </div>
+            <div class="form-group">
+              <label for="universidad">Universidad</label>
+              <select class="form-control form-control-lg" style="width:70%; height: 40%"
+                [(ngModel)]="universidad.iduniversidad">
+                <option *ngFor="let un of universidades" [value]="un.iduniversidad">
+                  {{un.nombre}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" (click)="updateConvenio()" data-dismiss="modal">
               Guardar</button>
-            </div>
           </div>
         </div>
       </div>
-    <div class="card-body table-full-width table-responsive">
-        <table class="table table-hover table-striped" >
-            <thead>
-                <th>#</th>
-                <th>N° de documento</th>
-                <th>Fecha inicio</th>
-                <th>Fecha fin</th>
-                <th>Universidad</th>
-                <th>Opciones</th>
-                <th class="d-none"></th>
-            </thead>
-            <tbody  *ngFor="let convenio of convenios; let i = index">
-                <tr>
-                    <td>{{i + 1}}</td>
-                    <td>{{convenio.n_documento}}</td>
-                    <td>{{convenio.fecha_inicio}}</td>
-                    <td>{{convenio.fecha_fin}}</td>
-                    <td>{{convenio.iduniversidad.nombre}}</td>
-                    <td class="td-actions text-right">
-                        <a href="#" rel="tooltip" title="Edit Profile" class="btn btn-success btn-link btn-xs">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a href="#" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-xs">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
-</div>
+    <!-- Fin del modal-->
