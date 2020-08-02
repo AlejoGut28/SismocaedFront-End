@@ -44,11 +44,8 @@ import { AppComponent } from 'src/app/app.component';
     HttpClientModule,
     NgbModalModule,
     NgxSpinnerModule,
-    NgxPaginationModule,
-    BrowserModule
-  
-
-
+    NgxPaginationModule
+    //BrowserModule
   ],
   entryComponents: [LoginComponent],
   providers: [],

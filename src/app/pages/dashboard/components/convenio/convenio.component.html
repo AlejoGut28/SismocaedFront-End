@@ -102,65 +102,38 @@
             </button>
           </div>
           <h3 class="modal-title" style="text-align: center;">Editar Convenio</h3>
-          <div class="modal-body" >
+          <div class="modal-body">
             <div class="form-group">
               <label>N° de documento</label>
               <input type="email" class="form-control" aria-describedby="emailHelp" style="width:70%"
                 [(ngModel)]="conv.n_documento">
             </div>
-            <h3 class="modal-title" style="text-align: center;">Registrar Convenio</h3>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="n_documento">N° de documento</label>
-                    <input type="email" class="form-control" id="n_documento" aria-describedby="emailHelp"
-                    style="width:70%" [(ngModel)]="convenio.n_documento">
-                  </div>
-                  <div class="form-group">
-                    <label for="fecha_inicio">Fecha de Inicio</label>
-                    <input type="date" class="form-control" id="fecha_inicio" aria-describedby="emailHelp"
-                    style="width:70%" [(ngModel)]="convenio.fecha_inicio">
-                  </div>
-                  <div class="form-group">
-                    <label for="fecha_fin">Fecha de Finalizacion</label>
-                    <input type="date" class="form-control" id="fecha_fin" aria-describedby="emailHelp"
-                    style="width:70%" [(ngModel)]="convenio.fecha_fin">
-                  </div>
-                  <div class="form-group">
-                    <label for="universidad">Universidad</label>
-                    <select class="form-control form-control-lg" style="width:70%; height: 40%"
-                    [(ngModel)]="universidad.iduniversidad">
-                        <option *ngFor="let uni of universidades" 
-                        [value]="uni.iduniversidad">
-                            {{uni.nombre}}
-                        </option>
-                      </select>
-                  </div>
-            <div class="form-group">
-              <label for="fecha_ini">Fecha de Inicio</label>
-              <input type="date" class="form-control" id="fecha_ini" aria-describedby="emailHelp" style="width:70%"
-                [(ngModel)]="conv.fecha_inicio">
+              <div class="form-group">
+                <label for="fecha_ini">Fecha de Inicio</label>
+                <input type="date" class="form-control" id="fecha_ini" aria-describedby="emailHelp" style="width:70%"
+                  [(ngModel)]="conv.fecha_inicio">
+              </div>
+              <div class="form-group">
+                <label for="fecha_fin">Fecha de Fin</label>
+                <input type="date" class="form-control" id="fe  cha_fin" aria-describedby="emailHelp" style="width:70%"
+                  [(ngModel)]="conv.fecha_fin">
+              </div>
+              <div class="form-group">
+                <label for="universidad">Universidad</label>
+                <select class="form-control form-control-lg" style="width:70%; height: 40%"
+                  [(ngModel)]="uni.iduniversidad">
+                  <option *ngFor="let un of universidades" [value]="un.iduniversidad">
+                    {{un.nombre}}
+                  </option>   
+                </select>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="fecha_fin">Fecha de Fin</label>
-              <input type="date" class="form-control" id="fe  cha_fin" aria-describedby="emailHelp" style="width:70%"
-                [(ngModel)]="conv.fecha_fin">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" (click)="updateConvenio()" data-dismiss="modal">
+                Guardar</button>
             </div>
-            <div class="form-group">
-              <label for="universidad">Universidad</label>
-              <select class="form-control form-control-lg" style="width:70%; height: 40%"
-                [(ngModel)]="universidad.iduniversidad">
-                <option *ngFor="let un of universidades" [value]="un.iduniversidad">
-                  {{un.nombre}}
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" (click)="updateConvenio()" data-dismiss="modal">
-              Guardar</button>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Fin del modal-->
+      <!-- Fin del modal-->
