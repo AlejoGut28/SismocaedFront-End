@@ -1,101 +1,180 @@
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  crossorigin="anonymous"
+/>
 <div class="card table-with-links">
-    <div class="card-header "> 
-      <h4 class="card-title">Cuadro de Solicitudes de Convocatoria</h4>
-        <!-- <p class="card-category">Here is a subtitle for this table</p> -->
-    <button type="button" class="btn btn-primary" style="margin-left: 81%;"
-        data-toggle="modal" data-target="#modalConvenio"><i class="fas fa-layer-group"></i>  Agregar Convenio
-       </button>
-    </div>
-<div class="modal fade" id="modalConvenio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    FormGroup="convenio">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <h3 class="modal-title" style="text-align: center;">Registrar Convenio</h3>
-            <div class="modal-body">
-               <div class="form-group">
-                    <label for="convocatoria">Nombre Convocatorias</label>
-                    <select class="form-control form-control-lg-4" style="width:70%; height: 40%; text-align: center;"
-                     [(ngModel)]="convocatoria.idconvocatoria">
-                      <option *ngFor="let convo of convocatorias" 
-                        [value]="convo.idconvocatoria" >
-                            {{convo.nombre_con}} 
-                        </option>
-                      </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="fecha_inicio">Fecha</label>
-                    <input type="date" class="form-control" id="fecha_inicio" aria-describedby="emailHelp"
-                    style="width:70%" [(ngModel)]="solicitar.fecha">
-                  </div>
-
-                    <div class="form-group">
-                        <label for="ejemplo_archivo_1">Adjuntar Solicitud</label>
-                            <input type="file" class="form-control" id="ejemplo_archivo_1" aria-describedby="emailHelp" style="width:70%">
-                    </div>
-                    <div class="form-group">
-                          <label for="ejemplo_archivo_1">Adjuntar Carta</label>
-                          <input type="file" class="form-control" id="ejemplo_archivo_1" aria-describedby="emailHelp" style="width:70%">
-                    </div>
-                   <div class="form-group">
-                     <label for="ejemplo_archivo_1">Curriculum</label>
-                     <input type="file" class="form-control" id="ejemplo_archivo_1" aria-describedby="emailHelp" style="width:70%">
-                   </div>
-                   <div class="form-group">
-                    <label for="n_documento">Descripcion</label>
-                     <input type="email" class="form-control" id="n_documento" aria-describedby="emailHelp" style="width:70%" placeholder="Ingrese Descripcion"
-                     [(ngModel)]="solicitar.descripcion" >
-             </div>
+  <div class="card-header">
+    <h4 class="card-title">Cuadro de Solicitudes de Convocatoria</h4>
+    <!-- <p class="card-category">Here is a subtitle for this table</p> -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="margin-left: 81%;"
+      data-toggle="modal"
+      data-target="#modalConvenio"
+    >
+      <i class="fas fa-layer-group"></i> Agregar Convenio
+    </button>
+  </div>
+  <div
+    class="modal fade"
+    id="modalConvenio"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+    FormGroup="convenio"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" ><i class="fas fa-backspace"></i>
-              Cerrar
-             </button>
-              <button type="button" class="btn btn-primary"
-              data-dismiss="modal" (click)="saveSolicitud()"><i class="fas fa-arrow-circle-up"></i>
-              Guardar</button>
-            </div>
+        <h3 class="modal-title" style="text-align: center;">
+          Registrar Convenio
+        </h3>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="convocatoria">Nombre Convocatorias</label>
+            <select
+              class="form-control form-control-lg-4"
+              style="width: 70%; height: 40%; text-align: center;"
+              [(ngModel)]="convocatoria.idconvocatoria"
+            >
+              <option
+                *ngFor="let convo of convocatorias"
+                [value]="convo.idconvocatoria"
+              >
+                {{ convo.nombre_con }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fecha_inicio">Fecha</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fecha_inicio"
+              aria-describedby="emailHelp"
+              style="width: 70%;"
+              [(ngModel)]="solicitar.fecha"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="ejemplo_archivo_1">Adjuntar Solicitud</label>
+            <input
+              type="file"
+              class="form-control"
+              id="ejemplo_archivo_1"
+              aria-describedby="emailHelp"
+              style="width: 70%;"
+              [(ngModel)]="solicitar.url_solicitud"
+            />
+          </div>
+          <div class="form-group">
+            <label for="ejemplo_archivo_1">Adjuntar Carta</label>
+            <input
+              type="file"
+              class="form-control"
+              id="ejemplo_archivo_1"
+              aria-describedby="emailHelp"
+              style="width: 70%;"
+              [(ngModel)]="solicitar.url_carta"
+            />
+          </div>
+          <div class="form-group">
+            <label for="ejemplo_archivo_1">Curriculum</label>
+            <input
+              type="file"
+              class="form-control"
+              id="ejemplo_archivo_1"
+              aria-describedby="emailHelp"
+              style="width: 70%;"
+              [(ngModel)]="solicitar.url_curriculum"
+            />
+          </div>
+          <div class="form-group">
+            <label for="n_documento">Descripcion</label>
+            <input
+              type="email"
+              class="form-control"
+              id="n_documento"
+              aria-describedby="emailHelp"
+              style="width: 70%;"
+              placeholder="Ingrese Descripcion"
+              [(ngModel)]="solicitar.descripcion"
+            />
           </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            <i class="fas fa-backspace"></i>
+            Cerrar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-dismiss="modal"
+            (click)="saveSolicitud()"
+          >
+            <i class="fas fa-arrow-circle-up"></i> Guardar
+          </button>
+        </div>
       </div>
-    <div class="card-body table-full-width table-responsive">
-        <table class="table table-hover table-striped" >
-            <thead>
-                <th>#</th>
-                <th>Nombre Conv</th>
-                <th>Solicitud</th>
-                <th>Fecha</th>
-                <th>Carta</th>
-                <th>Curriculum</th>
-                <th>Descripcion</th>
-                <th>Opciones</th>
-                <th class="d-none"></th>
-            </thead>
-            <tbody  *ngFor="let Solicitar of solicitarLista;  let i = index">
-                <tr>
-                    <td>{{i + 1}}</td>
-                    <td>{{Solicitar.idconvocatoria.nombre_con}}</td>
-                    <td>{{Solicitar.url_solicitud}}</td>
-                    <td>{{Solicitar.fecha}}</td>
-                    <td>{{Solicitar.url_carta}}</td>
-                    <td>{{Solicitar.url_curriculum}}</td>
-                    <td>{{Solicitar.descripcion}}</td>
-                    <td class="td-actions text-right">
-                        <a href="#" rel="tooltip" title="Edit Profile" class="btn btn-success btn-link btn-xs">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-xs" (click)="delete(Solicitar.iddetalle_convo)">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
+  </div>
+  <div class="card-body table-full-width table-responsive">
+    <table class="table table-hover table-striped">
+      <thead>
+        <th>#</th>
+        <th>Nombre Conv</th>
+        <th>Solicitud</th>
+        <th>Fecha</th>
+        <th>Carta</th>
+        <th>Curriculum</th>
+        <th>Descripcion</th>
+        <th>Opciones</th>
+        <th class="d-none"></th>
+      </thead>
+      <tbody *ngFor="let solict of solicitarLista; let i = index">
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ "Nombre falso" }}</td>
+          <td>{{ solict.url_solicitud }}</td>
+          <td>{{ solict.fecha }}</td>
+          <td>{{ solict.url_carta }}</td>
+          <td>{{ solict.url_curriculum }}</td>
+          <td>{{ solict.descripcion }}</td>
+          <td class="td-actions text-right">
+            <a
+              href="#"
+              rel="tooltip"
+              title="Edit Profile"
+              class="btn btn-success btn-link btn-xs"
+            >
+              <i class="fa fa-edit"></i>
+            </a>
+            <a
+              rel="tooltip"
+              title="Remove"
+              class="btn btn-danger btn-link btn-xs"
+              (click)="delete(solict.iddetalle_convo)"
+            >
+              <i class="fa fa-times"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

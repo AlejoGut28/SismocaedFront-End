@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { BrowserModule } from '@angular/platform-browser';
+
+
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -43,8 +44,7 @@ import { AppComponent } from 'src/app/app.component';
     HttpClientModule,
     NgbModalModule,
     NgxSpinnerModule,
-    NgxPaginationModule,
-    BrowserModule
+    NgxPaginationModule
   
 
 
@@ -53,6 +53,7 @@ import { AppComponent } from 'src/app/app.component';
   providers: [],
   bootstrap: [AppComponent]
 
-
 })
 export class DashboardModule { }
+
+
