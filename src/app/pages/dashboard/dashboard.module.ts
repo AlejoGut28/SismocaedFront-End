@@ -24,6 +24,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { LoginComponent } from '../login/login.component';
 import { AppComponent } from 'src/app/app.component';
+import { DocaprobadoComponent } from './components/docaprobado/docaprobado.component';
+import { AprobadoComponent } from './components/aprobado/aprobado.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { AppComponent } from 'src/app/app.component';
     DetalleConvoComponent,
     PublicaranuncioComponent,
     SolicitarconvenioComponent,
-    NotificarconvocatoriaComponent
+    NotificarconvocatoriaComponent,
+    DocaprobadoComponent,
+    AprobadoComponent
   ],
   imports: [
     CommonModule,

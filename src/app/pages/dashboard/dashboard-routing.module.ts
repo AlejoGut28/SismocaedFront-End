@@ -8,6 +8,8 @@ import { DetalleConvoComponent }   from './components/detalle-convo/detalle-conv
 import { PublicaranuncioComponent } from './components/publicaranuncio/publicaranuncio.component';
 import { SolicitarconvenioComponent } from './components/solicitarconvenio/solicitarconvenio.component';
 import { NotificarconvocatoriaComponent } from './components/notificarconvocatoria/notificarconvocatoria.component';
+import { DocaprobadoComponent } from "./components/docaprobado/docaprobado.component";
+import {  AprobadoComponent } from "./components/aprobado/aprobado.component";
 
 
 const routesHome: Routes = [
@@ -24,7 +26,10 @@ const routes: Routes = [
       { path: 'detalle-convo', component: DetalleConvoComponent },
       { path: 'publicar-anuncio', component: PublicaranuncioComponent},
       { path: 'solicitar-convenio', component: SolicitarconvenioComponent},
-      { path: 'notificar-convocatoria', component: NotificarconvocatoriaComponent}
+      { path: 'notificar-convocatoria', component: NotificarconvocatoriaComponent},
+      {path: 'docaprobado', component: DocaprobadoComponent},
+      {path: 'aprobado',component: AprobadoComponent}
+      
     ]
   }
 ];
