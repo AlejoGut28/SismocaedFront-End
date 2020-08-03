@@ -1,13 +1,14 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <div class="card table-with-links">
     <div class="card-header ">
         <div class="form-inline">
             <h4 class="card-title">Cuadro de convenios</h4>
         </div>
         <!-- <p class="card-category">Here is a subtitle for this table</p> -->
-        <button type="button" class="btn btn-primary" style="margin-left: 81%;"
-        data-toggle="modal" data-target="#anadirVacante">Agregar Convenio
-       </button>
+        <button type="button" class="btn btn-primary" style="margin-left: 81%;" data-toggle="modal"
+            data-target="#anadirVacante">Agregar Convenio
+        </button>
     </div>
     <div class="card-body table-full-width table-responsive">
         <table class="table table-hover table-striped">
@@ -44,90 +45,94 @@
 </div>
 
 <!-- Añadir vacante -->
-<div class="modal fade" id="anadirVacante" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="anadirVacante" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Registrar nuevo vacante</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Registrar nuevo vacante</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4">
+                        <h5 class="font-weight-bold">Registrar universidad</h5>
+                        <form>
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" [(ngModel)]="universidad.nombre" name="nombre">
+                            </div>
+                            <div class="form-group">
+                                <label>Direccion</label>
+                                <input type="text" class="form-control" [(ngModel)]="universidad.direccion" name="direccion">   
+                            </div>
+                            <div class="form-group">
+                                <label>Pais</label>
+                                <input type="text" class="form-control" [(ngModel)]="universidad.pais" name="pais">
+                            </div>
+                            <div class="form-group">
+                                <label>Total de vacantes</label>
+                                <input type="number" class="form-control" [(ngModel)]="universidad.totalvacantes" name="totalvacantes">
+                            </div>
+                            <button class="btn btn-info btn-wd" (click)="saveUniversidad()">Guardar</button>
+                        </form>
+                    </div>
+                    <div class="col-4">
+                        <h5 class="font-weight-bold">Registrar E.P.</h5>
+                        <form>
+                            <div class="form-group">
+                                <label>Nombre de E.P.</label>
+                                <input type="text" class="form-control" [(ngModel)]="e_profesional.nombre" name="nombre">
+                            </div>
+                            <div class="form-group">
+                                <label>Facultad</label>
+                                <input type="text" class="form-control" [(ngModel)]="e_profesional.facultad" name="facultad">
+                            </div>
+                            <div class="form-group">
+                                <label>Vacantes</label>
+                                <input type="number" class="form-control" [(ngModel)]="e_profesional.vacantes" name="vacantes">
+                            </div>
+                            <div class="form-group">
+                                <label>Contacto</label>
+                                <input type="text" class="form-control" [(ngModel)]="e_profesional.contacto" name="contacto">
+                            </div>
+                            <div class="form-group">
+                                <label>Fecha de Presentación</label>
+                                <input type="date" class="form-control" [(ngModel)]="e_profesional.fecha_pre" name="fecha_pre">
+                            </div>
+                            <div class="form-group">
+                                <label>Universidad seleccionada:</label>
+                                <select class="form-control" [(ngModel)]="universidad.iduniversidad" name="iduniversidad">
+                                    <option *ngFor="let uni of universidades" [value]="uni.iduniversidad">
+                                        {{uni.nombre}}
+                                    </option>
+                                </select>
+                            </div>
+                            <button class="btn btn-info btn-wd" (click)="saveE_profesional()">Guardar</button>
+                        </form>
+                    </div>
+                    <div class="col-4">
+                        <h5 class="font-weight-bold">Registrar requisitos</h5>
+                        <form>
+                            <div class="form-group">
+                                <label>Descripción</label>
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Adjuntar documento</label>
+                                <input type="file" class="form-control-file">
+                            </div>
+                            <button class="btn btn-info btn-wd">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success">Registrar</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <div class="row">
-              <div class="col-4">
-                <h5 class="font-weight-bold">Registrar universidad</h5>
-                <form>
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Direccion</label>
-                        <input type="text" class="form-control">    
-                    </div>
-                    <div class="form-group">
-                        <label>Pais</label>
-                        <input type="text" class="form-control">    
-                    </div>
-                    <div class="form-group">
-                        <label>Total de vacantes</label>
-                        <input type="number" class="form-control">    
-                    </div>
-                    <div class="form-group">
-                        <label>Seleccionar convenio</label>
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <button class="btn btn-info btn-wd">Guardar</button>
-                </form>
-              </div>
-              <div class="col-4">
-                <h5 class="font-weight-bold">Registrar E.P.</h5>
-                <form>
-                    <div class="form-group">
-                        <label>Nombre de E.P.</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Facultad</label>
-                        <input type="text" class="form-control">    
-                    </div>
-                    <div class="form-group">
-                        <label>Vacantes</label>
-                        <input type="number" class="form-control">    
-                    </div>
-                    <div class="form-group">
-                        <label>Universidad seleccionada:</label>
-                    </div>
-                    <button class="btn btn-info btn-wd">Guardar</button>
-                </form>
-              </div>
-              <div class="col-4">
-                <h5 class="font-weight-bold">Registrar requisitos</h5>
-                <form>
-                    <div class="form-group">
-                        <label>Descripción</label>
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Adjuntar documento</label>
-                        <input type="file" class="form-control-file">
-                    </div>
-                    <button class="btn btn-info btn-wd">Guardar</button>
-                </form>
-              </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-success">Registrar</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
