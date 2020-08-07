@@ -52,14 +52,33 @@
                 </li>
                 <li routerLinkActive="active">
                     <a [routerLink]="['/dashboard', 'detalle-convo']" class="nav-link">
-                        <i class="nc-icon nc-bank"></i>
+                        <i class="nc-icon nc-paper-2"></i>
                         <p>Solicitudes </p>
                     </a>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item active-pro"  (click)="onLogOut()" >
                     <a class="nav-link">
                         <i class="fas fa-door-open" style="cursor: pointer;"></i>
                         <p>Cerrar Sesión</p>
+=======
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/dashboard', 'docaprobado']" class="nav-link">
+                        <i class="nc-icon nc-attach-87"></i>
+                        <p>Adjuntar Docs  </p>
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/dashboard', 'aprobado']" class="nav-link">
+                        <i class="nc-icon nc-notes"></i>
+                        <p>Documentos  </p>
+                    </a>
+                </li>
+                <li class="nav-item active-pro">
+                    <a [routerLink]="['/login']" class="nav-link">
+                        <i class="nc-icon nc-alien-33"></i>
+                        <p>Salir</p>
+>>>>>>> f51c7f673182170f4fd358e1386ce349ef15b905
                     </a>
                 </li>
             </ul>
@@ -116,35 +135,6 @@
                 <ng-template #loggedOut>No has inciado sesión</ng-template>
             </div> 
         </div>
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav>
-                    <ul class="footer-menu">
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-center">
-                    </p>
-                </nav>
-            </div>
-        </footer>
+       
     </div>
 </div>

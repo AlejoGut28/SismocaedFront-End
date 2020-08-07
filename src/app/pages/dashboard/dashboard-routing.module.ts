@@ -8,8 +8,13 @@ import { DetalleConvoComponent }   from './components/detalle-convo/detalle-conv
 import { PublicaranuncioComponent } from './components/publicaranuncio/publicaranuncio.component';
 import { SolicitarconvenioComponent } from './components/solicitarconvenio/solicitarconvenio.component';
 import { NotificarconvocatoriaComponent } from './components/notificarconvocatoria/notificarconvocatoria.component';
+<<<<<<< HEAD
 import { LoginComponent } from '../login/login.component';
 import { ClasGuardService } from 'src/app/guards/clas-guard.service';
+=======
+import { DocaprobadoComponent } from "./components/docaprobado/docaprobado.component";
+import {  AprobadoComponent } from "./components/aprobado/aprobado.component";
+>>>>>>> f51c7f673182170f4fd358e1386ce349ef15b905
 
 
 const routesHome: Routes = [
@@ -26,7 +31,10 @@ const routes: Routes = [
       { path: 'detalle-convo', component: DetalleConvoComponent },
       { path: 'publicar-anuncio', component: PublicaranuncioComponent},
       { path: 'solicitar-convenio', component: SolicitarconvenioComponent},
-      { path: 'notificar-convocatoria', component: NotificarconvocatoriaComponent}
+      { path: 'notificar-convocatoria', component: NotificarconvocatoriaComponent},
+      {path: 'docaprobado', component: DocaprobadoComponent},
+      {path: 'aprobado',component: AprobadoComponent}
+      
     ]
   }
 ];
