@@ -21,7 +21,16 @@ export class Requisitos_aService {
          return 'Probando el service de Requisitos_a';
      }
 
-     saveRequisitos_a(requisitos_a: Requisitos_a){
-         return this._https.post<any>(this.url + 'upload/file', requisitos_a, {headers: this.HttpHeaders})
+     saveRequisitos_a(requisitos_a: Requisitos_a): Observable<any>{
+         return this._https.post<any>(this.url + 'upload/file', requisitos_a, {headers: this.HttpHeaders}).pipe(
+             catchError(e => {
+                 if(e.status == 400) {
+                     return throwError(e.error.message);
+                 }
+                 console.log(e);
+                 console.log('Error al enviar el requisito ', e.error.message, 'error');
+                 return throwError(e);
+             })
+         );
      }
 }

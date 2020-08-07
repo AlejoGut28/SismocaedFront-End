@@ -118,13 +118,14 @@
                         <form>
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" rows="3" [(ngModel)]="requisitos_a.descripcion" 
+                                name="descripcion"></textarea>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" method="post" enctype="multipart/form-data">
                                 <label>Adjuntar documento</label>
-                                <input type="file" class="form-control-file">
+                                <input type="file" class="form-control-file" [(ngModel)]="requisitos_a.archivos" name="documento">
                             </div>
-                            <button class="btn btn-info btn-wd">Guardar</button>
+                            <button class="btn btn-info btn-wd" (click)="saveRequisitos_a()">Guardar</button>
                         </form>
                     </div>
                 </div>

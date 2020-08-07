@@ -24,6 +24,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { LoginComponent } from '../login/login.component';
 import { AppComponent } from 'src/app/app.component';
+import { interceptorProvider } from 'src/app/interceptors/clas-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { AppComponent } from 'src/app/app.component';
     //BrowserModule
   ],
   entryComponents: [LoginComponent],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 
 

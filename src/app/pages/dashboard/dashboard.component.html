@@ -1,10 +1,12 @@
-<div class="wrapper">
-    <div class="sidebar" style="background-image: url('assets/img/sidebar-5.jpg'); background-position: 60% center;" data-image="assets/img/sidebar-5.jpg">
+<div class="wrapper" *ngIf="isLogged">
+    <div class="sidebar" style="background-image: url('assets/img/sidebar-5.jpg'); background-position: 60% center;"
+        data-image="assets/img/sidebar-5.jpg">
         <!--
     Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
     Tip 2: you can also add an image using data-image tag
 -->
+
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a class="simple-text">
@@ -30,21 +32,21 @@
                         <p>Convenios</p>
                     </a>
                 </li>
-                  <li routerLinkActive="active">
+                <li routerLinkActive="active">
                     <a [routerLink]="['/dashboard', 'notificar-convocatoria']" class="nav-link">
-                       <i class="fas fa-laptop-code"></i>
+                        <i class="fas fa-laptop-code"></i>
                         <p>Publicar Vacante</p>
                     </a>
                 </li>
-                             <li routerLinkActive="active">
+                <li routerLinkActive="active">
                     <a [routerLink]="['/dashboard', 'solicitar-convenio']" class="nav-link">
                         <i class="fas fa-layer-group"></i>
                         <p>Solicitar Convenio</p>
                     </a>
                 </li>
-                   <li routerLinkActive="active">
+                <li routerLinkActive="active">
                     <a [routerLink]="['/dashboard', 'publicar-anuncio']" class="nav-link">
-                       <i class="fas fa-window-restore"></i>
+                        <i class="fas fa-window-restore"></i>
                         <p>Publicar Anuncio</p>
                     </a>
                 </li>
@@ -54,10 +56,10 @@
                         <p>Solicitudes </p>
                     </a>
                 </li>
-                <li class="nav-item active-pro">
-                    <a [routerLink]="['/login']" class="nav-link">
-                        <i class="nc-icon nc-alien-33"></i>
-                        <p>Salir</p>
+                <li class="nav-item active-pro"  (click)="onLogOut()" >
+                    <a class="nav-link">
+                        <i class="fas fa-door-open" style="cursor: pointer;"></i>
+                        <p>Cerrar Sesión</p>
                     </a>
                 </li>
             </ul>
@@ -68,7 +70,8 @@
         <nav class="navbar navbar-expand-lg " color-on-scroll="500">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#pablo"> Dashboard </a>
-                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar burger-lines"></span>
                     <span class="navbar-toggler-bar burger-lines"></span>
                     <span class="navbar-toggler-bar burger-lines"></span>
@@ -102,37 +105,16 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-                                <span class="no-icon">Account</span>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="no-icon">Dropdown</span>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link">
-                                <span class="no-icon">Salir</span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
         <!-- End Navbar -->
         <div class="content">
             <router-outlet></router-outlet>
+            <div class="container text-center">
+                <div *ngIf="isLogged; else loggedOut"><h2>Bienvenido {{nombreUsuario}}</h2></div>
+                <ng-template #loggedOut>No has inciado sesión</ng-template>
+            </div> 
         </div>
         <footer class="footer">
             <div class="container-fluid">

@@ -1,37 +1,18 @@
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <div class="text-center" *ngIf="isLogged; else loggedOut">
     <h2>Ya ha iniciado sesión</h2>
 </div>
 <ng-template #loggedOut>
     <div class="wrapper wrapper-full-page"
-    style="background-image: url('https://www.upeu.edu.pe/wp-content/uploads/2019/07/UPeU-Lima.jpg');">
+        style="background-image: url('https://www.upeu.edu.pe/wp-content/uploads/2019/07/UPeU-Lima.jpg');">
         <div class="full-page  section-image" data-color="black" data-image="../../assets/img/full-screen-image-2.jpg">
             <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
             <div class="content">
                 <div class="container">
                     <div class="row justify-content-center mt-5">
-                        <div class="col-5" *ngFor="let publicidad of publicidades; index as i">
-                            <div class="carousel slide">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" style="height: 530px; width: 500%;"
-                                            src="{{publicidad.url_imagen}}" alt="Card image">
-                                    </div>
-
-                                </div>
-                                <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Anterior</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Siguiente</span>
-                                </a>
-                            </div>
-                        </div>
                         <div class="col-4 mt-5">
-                            <form class="form mt-5" method="" action="" #f="ngForm">
+                            <form class="form mt-5" method="" action="">
                                 <div class="card card-login card-hidden">
                                     <div class="card-header ">
                                         <ul class="nav nav-tabs">
@@ -46,23 +27,27 @@
                                     <div class="card-body ">
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="nombreUsuario">Ingresa tu Usuario</label>
-                                                <input type="email" placeholder="Ingresa tu usuario"
-                                                    class="form-control" name="nombreUsuario" id="nombreUsuario"
-                                                    [(ngModel)]="nombreUsuario" required>
+                                                <label>Registre su nuevo Nombre</label>
+                                                <input type="email" placeholder="Ingresa tu nombre"
+                                                    class="form-control" name="nombre" 
+                                                    [(ngModel)]="nombre" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="password">Contraseña</label>
+                                                <label>Registra tu nuevo Usuario</label>
+                                                <input type="email" placeholder="Ingresa tu usuario"
+                                                    class="form-control" name="nombreUsuario" 
+                                                    [(ngModel)]="nombreUsuario">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Contraseña</label>
                                                 <input type="password" placeholder="ingresa contraseña"
-                                                    class="form-control" name="password" id="password"
-                                                    [(ngModel)]="password" required>
+                                                    class="form-control" name="password" [(ngModel)]="password"> 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer ml-auto mr-auto">
                                         <button type="submit" class="btn btn-warning btn-wd"
-                                            (click)="onLogin()" [disabled]="!f.valid">
-                                            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+                                        (click)="onRegister()">Crear Cuenta</button>
                                     </div>
                                 </div>
                             </form>
@@ -82,4 +67,4 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>  
+    crossorigin="anonymous"></script>

@@ -7,6 +7,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Universidad } from 'src/app/models/universidad';
 import { UniversidadService } from '../../../../services/universidad.service';
 import Swal from 'sweetalert2';
+import { ClasGuardService as guard} from 'src/app/guards/clas-guard.service';
+import { TokenService } from 'src/app/services/token.service';
+
 
 @Component({
   selector: 'app-convenio',
@@ -26,21 +29,31 @@ export class ConvenioComponent implements OnInit {
   conv: Convenio = new Convenio();
   conv_borrar: Convenio = new Convenio();
   uni: Universidad = new Universidad();
+  roles: string [] = [];
+  isAdmin = false;
 
 
   constructor(
     private _convenioService: ConvenioService, private router: Router, private activatedRoute: ActivatedRoute,
-    private _universidadService: UniversidadService
+    private _universidadService: UniversidadService, private _tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
     this.getConvenios();
     this.getUniversidad();
+    this.roles = this._tokenService.getAuthorities();
+    this.roles.forEach( rol => {
+      if (rol === 'ROLE_ADMIN'){
+        this.isAdmin = true;
+      }
+    })
   }
 
   getConvenios() {
+    canActivate: [guard];
     this._convenioService.getConvenios().subscribe(
       response => {
+        expectedRol : ['admin', 'user'];
         this.convenios = response;
         console.table(response);
       }
@@ -52,6 +65,8 @@ export class ConvenioComponent implements OnInit {
     console.log(this.convenio);
     this._convenioService.saveConvenios(this.convenio).subscribe(
       data => {
+        canActivate: [guard];
+        expectedRol : ['admin'];
         console.log('Esta es la data: ' + data);
         this.getConvenios();
       }
@@ -60,7 +75,7 @@ export class ConvenioComponent implements OnInit {
       'Hecho!',
       'El convenio se ha registrado con exito',
       'success'
-    )
+    );
   }
 
   getUniversidad() {
@@ -103,6 +118,8 @@ export class ConvenioComponent implements OnInit {
     console.log(this.convenio.iduniversidad);
     this._convenioService.editConvenio(this.idconvenio, this.conv).subscribe(
       (resp: any) => {
+        canActivate: [guard];
+        expectedRol : ['admin'];
         console.log(resp);
         this.getConvenios();
       }
@@ -132,6 +149,8 @@ export class ConvenioComponent implements OnInit {
         this.conv_borrar.idconvenio = id;
         this._convenioService.deleteConvenio(id).subscribe(
           (resp: any) => {
+            canActivate: [guard];
+            expectedRol : ['admin'];
             this.getConvenios();
           }
         );

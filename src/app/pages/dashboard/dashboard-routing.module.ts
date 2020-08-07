@@ -8,11 +8,13 @@ import { DetalleConvoComponent }   from './components/detalle-convo/detalle-conv
 import { PublicaranuncioComponent } from './components/publicaranuncio/publicaranuncio.component';
 import { SolicitarconvenioComponent } from './components/solicitarconvenio/solicitarconvenio.component';
 import { NotificarconvocatoriaComponent } from './components/notificarconvocatoria/notificarconvocatoria.component';
+import { LoginComponent } from '../login/login.component';
+import { ClasGuardService } from 'src/app/guards/clas-guard.service';
 
 
 const routesHome: Routes = [
   {path:'', redirectTo:'',pathMatch:'full'},
-  
+  {path: 'login', component: LoginComponent, redirectTo: 'login'}
 ];
 
 const routes: Routes = [
