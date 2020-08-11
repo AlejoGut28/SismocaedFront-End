@@ -8,13 +8,15 @@ import { UniversidadService } from '../../../../services/universidad.service';
 import { Universidad} from 'src/app/models/universidad';
 import { E_profesionalService } from 'src/app/services/e_profesional.service';
 import { E_profesional } from 'src/app/models/e_profesional';
+import { Requisitos_aService } from 'src/app/services/requisitos_a.service';
+import { Requisitos_a } from 'src/app/models/requisitos_a';
 
 
 @Component({
   selector: 'app-vacante',
   templateUrl: './vacante.component.html',
   styles: [],
-  providers: [VacanteService, UniversidadService, E_profesionalService]
+  providers: [VacanteService, UniversidadService, E_profesionalService, Requisitos_aService]
 })
 export class VacanteComponent implements OnInit {
 
@@ -29,10 +31,12 @@ export class VacanteComponent implements OnInit {
   variable:Vacante = new Vacante();
   universidad: Universidad = new Universidad();
   e_profesional: E_profesional = new E_profesional();
+  requisitos_a: Requisitos_a = new Requisitos_a();
 
   constructor(
     private _vacanteService: VacanteService, private router: Router, private activatedRoute: ActivatedRoute,
-    private _universidadService: UniversidadService, private _e_profesionalService: E_profesionalService
+    private _universidadService: UniversidadService, private _e_profesionalService: E_profesionalService, 
+    private _requisitos_aService: Requisitos_aService
   ) { } 
 
   ngOnInit(): void {
@@ -67,6 +71,16 @@ export class VacanteComponent implements OnInit {
          console.log('Esto es la escuela profesional ' + resp);
          this.getVacantes();
       }
+    );
+  }
+
+  saveRequisitos_a(){
+    console.log(this.requisitos_a);
+    this._requisitos_aService.saveRequisitos_a(this.requisitos_a).subscribe(
+        (resp:any) => {
+           console.log('Esto es la data de requisitos_a ' + resp);
+           this.getVacantes();
+        }
     );
   }
 

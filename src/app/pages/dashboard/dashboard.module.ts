@@ -24,8 +24,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { LoginComponent } from '../login/login.component';
 import { AppComponent } from 'src/app/app.component';
+<<<<<<< HEAD
+import { interceptorProvider } from 'src/app/interceptors/clas-interceptor.service';
+=======
 import { DocaprobadoComponent } from './components/docaprobado/docaprobado.component';
 import { AprobadoComponent } from './components/aprobado/aprobado.component';
+>>>>>>> f51c7f673182170f4fd358e1386ce349ef15b905
 
 @NgModule({
   declarations: [
@@ -55,7 +59,7 @@ import { AprobadoComponent } from './components/aprobado/aprobado.component';
     //BrowserModule
   ],
   entryComponents: [LoginComponent],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 
 })

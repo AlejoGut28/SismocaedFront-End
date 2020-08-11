@@ -10,12 +10,15 @@ import { LoginComponent } from './pages/login/login.component';
 import { PaginaComponent } from './pages/pagina/pagina.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegistroComponent } from './pages/registro/registro.component';
+import { interceptorProvider } from './interceptors/clas-interceptor.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PaginaComponent
+    PaginaComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
