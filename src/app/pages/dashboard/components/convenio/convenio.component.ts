@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Universidad } from 'src/app/models/universidad';
 import { UniversidadService } from '../../../../services/universidad.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-convenio',
@@ -21,6 +22,7 @@ export class ConvenioComponent implements OnInit {
   public universidad: Universidad = new Universidad();
   p: number;
   idconvenio: number;
+  iduniversidad: number;
   conv: Convenio = new Convenio();
   conv_borrar: Convenio = new Convenio();
   uni: Universidad = new Universidad();
@@ -54,6 +56,11 @@ export class ConvenioComponent implements OnInit {
         this.getConvenios();
       }
     );
+    Swal.fire(
+      'Hecho!',
+      'El convenio se ha registrado con exito',
+      'success'
+    )
   }
 
   getUniversidad() {
@@ -69,12 +76,24 @@ export class ConvenioComponent implements OnInit {
     this.idconvenio = id;
     console.log(id);
     this._convenioService.getConvenioId(id).subscribe(
-      (resp:any) => {
+      (resp: any) => {
         this.conv = resp;
         console.log(this.conv);
         console.log(resp);
       },
-       err => console.log(err)
+      err => console.log(err)
+    );
+  }
+
+  getUniId(id: number) {
+    this.iduniversidad = id;
+    console.log(id);
+    this._universidadService.getUniversidadId(id).subscribe(
+      (resp: any) => {
+        this.uni = resp;
+        console.log(this.uni);
+      },
+      err => console.log(err)
     );
   }
 
@@ -89,18 +108,40 @@ export class ConvenioComponent implements OnInit {
       }
     );
     this.conv = new Convenio();
-    this.universidad = new Universidad();
+    this.uni = new Universidad();
+    Swal.fire(
+      'Hecho!',
+      'El convenio se ha editado con exito',
+      'success'
+    )
   }
 
-  
+
 
   deleteConvenio(id: number) {
-    this.conv_borrar.idconvenio = id;
-    this._convenioService.deleteConvenio(id).subscribe(
-      (resp: any) => {
-        this.getConvenios();
+    Swal.fire({
+      title: 'Estas seguro de querer eliminarlo?',
+      text: "Ya no podrás revertirlo!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminalo!'
+    }).then((result) => {
+      if (result.value) {
+        this.conv_borrar.idconvenio = id;
+        this._convenioService.deleteConvenio(id).subscribe(
+          (resp: any) => {
+            this.getConvenios();
+          }
+        );
+        Swal.fire(
+          'Eliminado!',
+          'El convenio ha sido eliminado',
+          'success'
+        )
       }
-    );
+    })
   }
 
   /*objectKeys(object:any){
@@ -108,5 +149,5 @@ export class ConvenioComponent implements OnInit {
       console.log(keys);
        return keys;
   }*/
-  
+
 }

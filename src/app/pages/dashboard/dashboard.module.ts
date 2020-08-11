@@ -4,8 +4,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
+import {NgxPaginationModule} from 'ngx-pagination';
 
-import { NgxPaginationModule } from 'ngx-pagination';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -24,6 +24,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { LoginComponent } from '../login/login.component';
 import { AppComponent } from 'src/app/app.component';
+import { DocaprobadoComponent } from './components/docaprobado/docaprobado.component';
+import { AprobadoComponent } from './components/aprobado/aprobado.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { AppComponent } from 'src/app/app.component';
     DetalleConvoComponent,
     PublicaranuncioComponent,
     SolicitarconvenioComponent,
-    NotificarconvocatoriaComponent
+    NotificarconvocatoriaComponent,
+    DocaprobadoComponent,
+    AprobadoComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +52,7 @@ import { AppComponent } from 'src/app/app.component';
   
 
 
+    //BrowserModule
   ],
   entryComponents: [LoginComponent],
   providers: [],

@@ -1,0 +1,40 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<div class="card table-with-links">
+    <div class="card-header "> 
+      <h4 class="card-title">Documentos de aprobacion</h4>
+        <!-- <p class="card-category">Here is a subtitle for this table</p> -->
+    
+    </div>
+
+    <div class="card-body table-full-width table-responsive">
+        <table class="table table-hover table-striped" >
+            <thead>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Fecha</th>
+                <th>Antecedentes Policiales</th>
+                <th>Certificado de Salud</th>
+                <th>Copia de Dni</th>
+                <th>Copia de Pasaporte</th>
+                <th>Curriculum Vitae</th>
+                <th class="d-none"></th>
+            </thead>
+            <tbody  >
+                <tr *ngFor="let docaprobado of docaprobado; let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{docaprobado.codigoap}}</td>
+                    <td>{{docaprobado.fecha}}</td>
+                    <td>{{docaprobado.doc_curriculum_vitae}}</td>
+                    <td>{{docaprobado.doc_certificado_salud}}</td>
+                    <td>{{docaprobado.doc_antecedentes_policiales}}</td>
+                    <td>{{docaprobado.doc_copia_pass}}</td>
+                    <td>{{docaprobado.doc_copia_dni}}</td>
+                    <td class="td-actions text-right">
+                    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -50,8 +50,20 @@
                 </li>
                 <li routerLinkActive="active">
                     <a [routerLink]="['/dashboard', 'detalle-convo']" class="nav-link">
-                        <i class="nc-icon nc-bank"></i>
+                        <i class="nc-icon nc-paper-2"></i>
                         <p>Solicitudes </p>
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/dashboard', 'docaprobado']" class="nav-link">
+                        <i class="nc-icon nc-attach-87"></i>
+                        <p>Adjuntar Docs  </p>
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/dashboard', 'aprobado']" class="nav-link">
+                        <i class="nc-icon nc-notes"></i>
+                        <p>Documentos  </p>
                     </a>
                 </li>
                 <li class="nav-item active-pro">
@@ -134,35 +146,6 @@
         <div class="content">
             <router-outlet></router-outlet>
         </div>
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav>
-                    <ul class="footer-menu">
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-center">
-                    </p>
-                </nav>
-            </div>
-        </footer>
+       
     </div>
 </div>
