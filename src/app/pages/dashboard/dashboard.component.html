@@ -56,29 +56,10 @@
                         <p>Solicitudes </p>
                     </a>
                 </li>
-<<<<<<< HEAD
-                <li class="nav-item active-pro"  (click)="onLogOut()" >
+                <li class="nav-item active-pro" (click)="onLogOut()">
                     <a class="nav-link">
                         <i class="fas fa-door-open" style="cursor: pointer;"></i>
                         <p>Cerrar Sesión</p>
-=======
-                <li routerLinkActive="active">
-                    <a [routerLink]="['/dashboard', 'docaprobado']" class="nav-link">
-                        <i class="nc-icon nc-attach-87"></i>
-                        <p>Adjuntar Docs  </p>
-                    </a>
-                </li>
-                <li routerLinkActive="active">
-                    <a [routerLink]="['/dashboard', 'aprobado']" class="nav-link">
-                        <i class="nc-icon nc-notes"></i>
-                        <p>Documentos  </p>
-                    </a>
-                </li>
-                <li class="nav-item active-pro">
-                    <a [routerLink]="['/login']" class="nav-link">
-                        <i class="nc-icon nc-alien-33"></i>
-                        <p>Salir</p>
->>>>>>> f51c7f673182170f4fd358e1386ce349ef15b905
                     </a>
                 </li>
             </ul>
@@ -131,10 +112,12 @@
         <div class="content">
             <router-outlet></router-outlet>
             <div class="container text-center">
-                <div *ngIf="isLogged; else loggedOut"><h2>Bienvenido {{nombreUsuario}}</h2></div>
+                <div *ngIf="isLogged; else loggedOut">
+                    <h2>Bienvenido {{nombreUsuario}}</h2>
+                </div>
                 <ng-template #loggedOut>No has inciado sesión</ng-template>
-            </div> 
+            </div>
         </div>
-       
+
     </div>
 </div>

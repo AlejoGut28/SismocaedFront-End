@@ -8,7 +8,7 @@ import { ClasGuardService as Guard} from './guards/clas-guard.service';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/pagina ', pathMatch: 'full'},
+  { path: '', pathMatch: 'full', component: PaginaComponent},
   { path: 'login', component: LoginComponent },
   { path: 'pagina', component: PaginaComponent},
   { path: 'registro', component: RegistroComponent},

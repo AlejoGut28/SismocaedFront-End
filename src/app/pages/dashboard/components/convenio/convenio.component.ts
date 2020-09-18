@@ -7,7 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Universidad } from 'src/app/models/universidad';
 import { UniversidadService } from '../../../../services/universidad.service';
 import Swal from 'sweetalert2';
-import { ClasGuardService as guard} from 'src/app/guards/clas-guard.service';
+import { ClasGuardService as guard } from 'src/app/guards/clas-guard.service';
 import { TokenService } from 'src/app/services/token.service';
 
 
@@ -29,7 +29,7 @@ export class ConvenioComponent implements OnInit {
   conv: Convenio = new Convenio();
   conv_borrar: Convenio = new Convenio();
   uni: Universidad = new Universidad();
-  roles: string [] = [];
+  roles: string[] = [];
   isAdmin = false;
 
 
@@ -42,8 +42,8 @@ export class ConvenioComponent implements OnInit {
     this.getConvenios();
     this.getUniversidad();
     this.roles = this._tokenService.getAuthorities();
-    this.roles.forEach( rol => {
-      if (rol === 'ROLE_ADMIN'){
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
         this.isAdmin = true;
       }
     })
@@ -53,7 +53,7 @@ export class ConvenioComponent implements OnInit {
     canActivate: [guard];
     this._convenioService.getConvenios().subscribe(
       response => {
-        expectedRol : ['admin', 'user'];
+        expectedRol: ['admin', 'user'];
         this.convenios = response;
         console.table(response);
       }
@@ -66,7 +66,7 @@ export class ConvenioComponent implements OnInit {
     this._convenioService.saveConvenios(this.convenio).subscribe(
       data => {
         canActivate: [guard];
-        expectedRol : ['admin'];
+        expectedRol: ['admin'];
         console.log('Esta es la data: ' + data);
         this.getConvenios();
       }
@@ -119,7 +119,7 @@ export class ConvenioComponent implements OnInit {
     this._convenioService.editConvenio(this.idconvenio, this.conv).subscribe(
       (resp: any) => {
         canActivate: [guard];
-        expectedRol : ['admin'];
+        expectedRol: ['admin'];
         console.log(resp);
         this.getConvenios();
       }
@@ -150,7 +150,7 @@ export class ConvenioComponent implements OnInit {
         this._convenioService.deleteConvenio(id).subscribe(
           (resp: any) => {
             canActivate: [guard];
-            expectedRol : ['admin'];
+            expectedRol: ['admin'];
             this.getConvenios();
           }
         );

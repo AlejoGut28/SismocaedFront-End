@@ -16,6 +16,8 @@ import { DetalleConvoComponent } from './components/detalle-convo/detalle-convo.
 import { PublicaranuncioComponent } from './components/publicaranuncio/publicaranuncio.component';
 import { SolicitarconvenioComponent } from './components/solicitarconvenio/solicitarconvenio.component';
 import { NotificarconvocatoriaComponent } from './components/notificarconvocatoria/notificarconvocatoria.component';
+import { DocaprobadoComponent } from './components/docaprobado/docaprobado.component';
+import { AprobadoComponent } from './components/aprobado/aprobado.component';
 
 
 // external
@@ -24,12 +26,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { LoginComponent } from '../login/login.component';
 import { AppComponent } from 'src/app/app.component';
-<<<<<<< HEAD
 import { interceptorProvider } from 'src/app/interceptors/clas-interceptor.service';
-=======
-import { DocaprobadoComponent } from './components/docaprobado/docaprobado.component';
-import { AprobadoComponent } from './components/aprobado/aprobado.component';
->>>>>>> f51c7f673182170f4fd358e1386ce349ef15b905
 
 @NgModule({
   declarations: [
