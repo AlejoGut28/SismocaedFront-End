@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { BrowserModule } from '@angular/platform-browser';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -50,12 +50,16 @@ import { interceptorProvider } from 'src/app/interceptors/clas-interceptor.servi
     NgbModalModule,
     NgxSpinnerModule,
     NgxPaginationModule
+  
+
+
     //BrowserModule
   ],
   entryComponents: [LoginComponent],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
 
-
 })
 export class DashboardModule { }
+
+
