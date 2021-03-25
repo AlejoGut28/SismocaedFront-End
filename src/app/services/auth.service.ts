@@ -38,7 +38,7 @@ export class AuthService {
           return throwError(e);
         }
         console.log(e);
-        console.log('Error al crear el usuario ', e.error.message, 'error');
+        console.log('Error al ingresar el usuario ', e.error.message, 'error');
         return throwError(e);
       })
     );

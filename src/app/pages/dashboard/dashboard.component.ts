@@ -40,8 +40,8 @@ export class DashboardComponent implements OnInit {
         this._tokenService.logOut();
         this.router.navigate[('/login')];
         Swal.fire(
-          'Se ha deslogeado!',
-          'Usted ha sido deslogeado',
+          'Ha cerrado sesión con éxito!',
+          'Usted ha cerrado sesión con éxito',
           'success'
         )
       }
